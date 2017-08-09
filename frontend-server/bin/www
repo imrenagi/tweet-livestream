@@ -20,11 +20,20 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+var io = require('socket.io')(server);
+
+// var streamHandler = require('../services/socket-handler');
+
+var redis = require('./../db/redis');
+var socketio = require('./../services/socket');
+
+socketio(server, redis);
+
+// io.on('connection', streamHandler.onListening)
 
 /**
  * Listen on provided port, on all network interfaces.
  */
-
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);

@@ -8,6 +8,8 @@ services:
       TWITTER_ACCESS_TOKEN_KEY: $TWITTER_ACCESS_TOKEN_KEY
       TWITTER_ACCESS_TOKEN_SECRET: $TWITTER_ACCESS_TOKEN_SECRET
     build: rojak-twitter-stream
+    volumes:
+      - "./rojak-twitter-stream:/src"
     restart: always
     logging:
       options:

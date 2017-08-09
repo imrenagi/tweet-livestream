@@ -7,9 +7,9 @@ services:
       TWITTER_CONSUMER_SECRET: $TWITTER_CONSUMER_SECRET
       TWITTER_ACCESS_TOKEN_KEY: $TWITTER_ACCESS_TOKEN_KEY
       TWITTER_ACCESS_TOKEN_SECRET: $TWITTER_ACCESS_TOKEN_SECRET
-    build: rojak-twitter-stream
+    build: streaming-engine
     volumes:
-      - "./rojak-twitter-stream:/src"
+      - "./streaming-engine:/src"
     restart: always
     logging:
       options:

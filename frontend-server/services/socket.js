@@ -7,8 +7,10 @@ function initSockets(server, client) {
 
   client.on("message", function(channel, message) {
     console.log(channel + " ---> " + message);
-    var sentiment = Math.random() >= 0.5 ? 'positive' : 'negative';
-    io.emit('tweet_sentiment', {sentiment});
+    if (channel === "tweet") {
+      var sentiment = message
+      io.emit('tweet_sentiment', {sentiment : sentiment});
+    }
   })
 
   var handler = io.on('connection', function(socket) {

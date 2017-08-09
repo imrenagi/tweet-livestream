@@ -8,4 +8,4 @@ WORKDIR /src
 ADD requirements.txt /src/requirements.txt
 RUN pip install --no-cache-dir -r /src/requirements.txt
 
-CMD [ "python", "/src/StreamingMain.py" ]
+CMD [ "python", "/src/src/StreamingMain.py" ]

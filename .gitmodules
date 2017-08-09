@@ -1,0 +1,3 @@
+[submodule "rojak-twitter-stream"]
+	path = rojak-twitter-stream
+	url = git@github.com:imrenagi/rojak-twitter-stream.git

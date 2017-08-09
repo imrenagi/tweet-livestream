@@ -1,0 +1,37 @@
+version: '2'
+services:
+
+  twitter-stream:
+    environment:
+      TWITTER_CONSUMER_KEY: $TWITTER_CONSUMER_KEY
+      TWITTER_CONSUMER_SECRET: $TWITTER_CONSUMER_SECRET
+      TWITTER_ACCESS_TOKEN_KEY: $TWITTER_ACCESS_TOKEN_KEY
+      TWITTER_ACCESS_TOKEN_SECRET: $TWITTER_ACCESS_TOKEN_SECRET
+    build: rojak-twitter-stream
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  frontend-server:
+    build: frontend-server
+    restart: always
+    volumes:
+      - "./frontend-server:/src"
+    ports:
+      - 80:3000
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  redis:
+    image: redis:3.2.10
+    container_name: redis-db
+    ports:
+        - "6379"
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"

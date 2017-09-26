@@ -8,6 +8,8 @@ services:
       TWITTER_ACCESS_TOKEN_KEY: $TWITTER_ACCESS_TOKEN_KEY
       TWITTER_ACCESS_TOKEN_SECRET: $TWITTER_ACCESS_TOKEN_SECRET
     build: streaming-engine
+    depends_on:
+      - redis
     volumes:
       - "./streaming-engine:/src"
     restart: always
@@ -18,6 +20,8 @@ services:
 
   frontend-server:
     build: frontend-server
+    depends_on:
+      - redis    
     restart: always
     volumes:
       - "./frontend-server:/src"

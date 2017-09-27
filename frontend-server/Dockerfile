@@ -8,6 +8,7 @@ ADD . /src
 
 WORKDIR /src
 ADD package.json /src/package.json
+RUN npm install express
 RUN npm install
 
 ADD nodemon.json /src/nodemon.json
